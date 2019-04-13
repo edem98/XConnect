@@ -1,0 +1,26 @@
+ <!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#body" class="scrollto"><span><i class="fa fa-bolt" aria-hidden="true"></i></span>XConnect</a></h1>
+        <!-- <a href="#body"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="{% url 'home' %}">Home</a></li>
+          <li><a href="#contact">Contact</a></li>
+          {% if  request.user.is_authenticated %}
+            <li><a href="{% url 'add-party' %}">Add event</a></li>
+            <li><a href="{% url 'my-parties' %}">My Parties</a></li>
+            <a href="{% url 'logout' %}" > log out </a>
+            {% else %}
+            <a href="{% url 'login' %}" >login</a>
+            {% endif %}
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->

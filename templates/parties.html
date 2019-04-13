@@ -1,0 +1,59 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<section id="intro">
+
+    <div class="intro-content">
+      <h2><span>Party Night</span><br>Crazy Non-Stop Music Reload</h2>
+      <div>
+        <a href="{% url 'signup' %}" class="btn-get-started scrollto">Sign up Now !!</a>
+      </div>
+    </div>
+    <div class="item" style="background-image: url('{% static 'img/intro-carousel/1.jpg' %}');"></div>
+  </section><!-- #intro -->
+
+ <!--==========================
+      Event Section
+    ============================-->
+<section id="event">
+      <div class="container box2-main">
+        <div class="section-header">
+          <h2>Upcoming Events</h2>
+        </div>
+
+        <div class="row">
+            {% for party in returned_parties %}
+          <div class="col-12 col-md-6">
+                <figure class="featured-image">
+                    <a href="#"> <img class="img-fluid" src="{{ party.image.url }}" alt="fesival+celebration"> </a>
+                </figure><!-- featured-image -->
+
+                <div class="box-link-date">
+                    <a href="#">{{ party.date }}</a>
+                </div>
+
+                <div class="content-wrapper">
+                    <div class="entry-content">
+                        <div class="entry-header">
+                            <h2><a href="#">{{ party.title }}</a></h2>
+                        </div><!-- entry-header -->
+
+                        <div class="entry-meta">
+                            <span class="author-name"><a href="#"> {{ party.organiser }}</a></span>
+                            <span class="space">|</span>
+                        </div><!-- entry-meta -->
+
+                        <div class="entry-description">
+                            <p>{{ party.description }}.</p>
+                        </div><!-- entry-description -->
+                    </div><!-- entry-content -->
+                </div><!-- content-wrapper -->
+            </div>
+            {% endfor %}
+        </div>
+
+
+      </div>
+    </section>
+{% endblock %}

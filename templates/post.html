@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <h1 style="text-align: center;margin-top: 20px;margin-bottom: 20px;"> Add new Party</h1>
+</div>
+
+<div class="container">
+    <form action="{% url 'add-party' %}" method="post">
+       {% csrf_token %}
+      <div class="form-group">
+        <label for="email">Event City:</label>
+        {{ form.city }}
+      </div>
+
+      <div class="form-group">
+      <label for="email">Event title:</label>
+        {{ form.title }}
+      </div>
+
+      <div class="form-group">
+        <label for="comment">Description:</label>
+        {{ form.description }}
+      </div>
+
+      <div class="custom-file">
+        {{ form.image }}
+      </div>
+
+      <div class="form-group">
+        <label for="email">Event date:</label>
+        {{ form.date }}
+      </div>
+
+      <div class="form-group">
+        {{ form.location }}
+      </div>
+
+      <div class="form-group" style="margin-top: -270px;">
+          <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+
+  </form>
+</div>
+{% endblock %}

@@ -1,0 +1,34 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container">
+  <h1 style="text-align: center;margin-top: 20px;margin-bottom: 20px;"> Sign Up !! </h1>
+</div>
+
+<div class="container">
+    <form action="{% url 'signup' %}" method="post">
+       {% csrf_token %}
+      <div class="form-group">
+        <label for="email">Username</label>
+        {{ form.username }}
+      </div>
+
+      <div class="form-group">
+      <label for="email">Password</label>
+        {{ form.password }}
+      </div>
+
+
+      <div class="form-group">
+      <label for="email">Email</label>
+        {{ form.email }}
+      </div>
+
+      <div id="space">
+          <button type="submit" class="btn btn-default">Submit</button>
+      </div>
+
+  </form>
+</div>
+{% endblock %}
