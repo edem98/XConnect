@@ -129,14 +129,6 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
 ]
 
-AWS_ACCESS_KEY_ID = 'AKIAIGR4ZJQ3GGLIG6BQ'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'kestream'
-AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-AWS_DEFAULT_ACL = None
 
 DEFAULT_FILE_STORAGE = 'xconnect.storage_backends.MediaStorage'
 
